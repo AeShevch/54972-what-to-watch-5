@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Александр Шевченко](https://up.htmlacademy.ru/react/5/user/54972).
-* Наставник: `Неизвестно`.
+* Наставник: [Антон Белуженко](https://htmlacademy.ru/profile/id127006).
 
 ---
 
