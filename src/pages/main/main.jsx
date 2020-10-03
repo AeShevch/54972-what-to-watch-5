@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const MainPage = (props) => {
+const Main = (props) => {
   const {title, genre, date} = props;
 
   return (
@@ -309,10 +309,10 @@ const MainPage = (props) => {
   );
 };
 
-MainPage.propTypes = {
+Main.propTypes = {
   title: PropTypes.string,
   genre: PropTypes.string,
   date: PropTypes.string,
 };
 
-export default MainPage;
+export default Main;
