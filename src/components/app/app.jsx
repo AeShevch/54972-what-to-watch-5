@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import MainPage from "../../pages/main/main";
+import Main from "../../pages/main/main";
 import SignIn from "../../pages/sign-in/sign-in";
 import MyList from "../../pages/mylist/mylist";
 import Film from "../../pages/film/film";
@@ -13,7 +13,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <MainPage
+          <Main
             title={`The Grand Budapest Hotel`}
             genre={`Drama`}
             date={`2014`}
