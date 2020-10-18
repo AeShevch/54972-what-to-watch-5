@@ -1,6 +1,6 @@
 import React from "react";
 
-const Player = () => {
+const PlayerPage = () => {
   return (
     <div className="player">
       <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>
@@ -37,4 +37,4 @@ const Player = () => {
   );
 };
 
-export default Player;
+export default PlayerPage;

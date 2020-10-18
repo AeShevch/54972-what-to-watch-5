@@ -1,42 +1,64 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import Main from "../../pages/main/main";
-import SignIn from "../../pages/sign-in/sign-in";
-import MyList from "../../pages/mylist/mylist";
-import Film from "../../pages/film/film";
-import Review from "../../pages/review/review";
-import Player from "../../pages/player/player";
+import MainPage from "../../pages/main-page/main-page";
+import SignInPage from "../../pages/sign-in-page/sign-in-page";
+import MylistPage from "../../pages/mylist-page/mylist-page";
+import MoviePage from "../../pages/movie-page/movie-page";
+import ReviewPage from "../../pages/review-page/review-page";
+import PlayerPage from "../../pages/player-page/player-page";
 
-const App = () => {
+import moviesProp from "../movie-card/movie-card.prop";
+
+const App = ({movies, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
+
         <Route path="/" exact>
-          <Main
-            title={`The Grand Budapest Hotel`}
-            genre={`Drama`}
-            date={`2014`}
+          <MainPage
+            movies={movies}
           />
         </Route>
+
         <Route path="/sign-in" exact>
-          <SignIn/>
+          <SignInPage/>
         </Route>
+
         <Route path="/mylist" exact>
-          <MyList/>
+          <MylistPage
+            movies={movies}
+          />
         </Route>
-        <Route path="/films/:id" exact>
-          <Film/>
-        </Route>
+
+        <Route
+          path="/films/:id"
+          exact
+          render={(props) =>
+            <MoviePage
+              movieInfo={movies[props.match.params.id]}
+              related={movies.slice(0, 4)}
+            />
+          }
+        />
+
         <Route path="/films/:id/review" exact>
-          <Review/>
+          <ReviewPage/>
         </Route>
+
         <Route path="/player/:id" exact>
-          <Player/>
+          <PlayerPage/>
         </Route>
+
       </Switch>
     </BrowserRouter>
   );
+};
+
+App.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape(moviesProp)).isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 export default App;
