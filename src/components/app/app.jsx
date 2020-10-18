@@ -35,9 +35,10 @@ const App = ({movies, reviews}) => {
         <Route
           path="/films/:id"
           exact
-          render={(props) =>
+          render={({match: {params: {id}}}) =>
             <MoviePage
-              movieInfo={movies[props.match.params.id]}
+              movieInfo={movies[id]}
+              reviews={reviews}
               related={movies.slice(0, 4)}
             />
           }
