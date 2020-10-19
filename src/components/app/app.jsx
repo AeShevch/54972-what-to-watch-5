@@ -11,6 +11,8 @@ import PlayerPage from "../../pages/player-page/player-page";
 
 import moviesProp from "../movie-card/movie-card.prop";
 
+const RELATED_MOVIES_COUNT = 4;
+
 const App = ({movies, reviews}) => {
   return (
     <BrowserRouter>
@@ -39,7 +41,7 @@ const App = ({movies, reviews}) => {
             <MoviePage
               movieInfo={movies[id]}
               reviews={reviews}
-              related={movies.slice(0, 4)}
+              related={movies.slice(0, RELATED_MOVIES_COUNT)}
             />
           }
         />

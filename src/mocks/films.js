@@ -2,7 +2,6 @@ import {nanoid} from 'nanoid';
 
 export default [
   {
-    id: nanoid(),
     name: `The Grand Budapest Hotel`,
     genre: `Drama`,
     date: `2014`,
@@ -35,7 +34,6 @@ export default [
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Fantastic Beasts: The Crimes of Grindelwald`,
     genre: `Drama`,
     date: `2014`,
@@ -68,7 +66,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Bohemian Rhapsody`,
     genre: `Drama`,
     date: `2014`,
@@ -101,7 +98,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Macbeth`,
     genre: `Drama`,
     date: `2014`,
@@ -134,7 +130,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Aviator`,
     genre: `Drama`,
     date: `2014`,
@@ -167,7 +162,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Pulp Fiction`,
     genre: `Drama`,
     date: `2014`,
@@ -200,7 +194,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Shutter Island`,
     genre: `Drama`,
     date: `2014`,
@@ -233,7 +226,6 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
   {
-    id: nanoid(),
     name: `Seven Years in Tibet`,
     genre: `Drama`,
     date: `2014`,
@@ -265,4 +257,4 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
     description: `In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege. <br>
 Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.`,
   },
-];
+].map((item) => (Object.assign({}, item, {id: nanoid()})));

@@ -7,7 +7,7 @@ import UserBlock from "../../components/user-block/user-block";
 import Footer from "../../components/footer/footer";
 
 const MainPage = ({movies}) => {
-  const currentMovie = movies[0];
+  const [currentMovie] = movies;
 
   return (
     <React.Fragment>
