@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
-import MovieCard from "../../components/movie-card/movie-card";
-import MoviesList from "../../components/movies-list/movies-list";
+import MovieCard from "../movie-card/movie-card";
+import MoviesList from "../movies-list/movies-list";
 import moviePageProp from "./movie-page.prop";
-import Footer from "../../components/footer/footer";
+import Footer from "../footer/footer";
 
 const MoviePage = (props) => {
   const {movieInfo, related} = props;

@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "../../components/logo/logo";
-import UserBlock from "../../components/user-block/user-block";
+import Logo from "../logo/logo";
+import UserBlock from "../user-block/user-block";
 import {Link} from "react-router-dom";
-import AddReviewForm from "../../components/add-review-form/add-review-form";
+import AddReviewForm from "../add-review-form/add-review-form";
 
 const ReviewPage = () => {
   return (

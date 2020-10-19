@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import movieProp from "../../components/movie-card/movie-card.prop";
+import movieProp from "../movie-card/movie-card.prop";
 
 export default Object.assign(
     {},
