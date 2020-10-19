@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import MainPage from "../../pages/main-page/main-page";
-import SignInPage from "../../pages/sign-in-page/sign-in-page";
-import MylistPage from "../../pages/mylist-page/mylist-page";
-import MoviePage from "../../pages/movie-page/movie-page";
-import ReviewPage from "../../pages/review-page/review-page";
-import PlayerPage from "../../pages/player-page/player-page";
+import MainPage from "../main-page/main-page";
+import SignInPage from "../sign-in-page/sign-in-page";
+import MylistPage from "../mylist-page/mylist-page";
+import MoviePage from "../movie-page/movie-page";
+import ReviewPage from "../review-page/review-page";
+import PlayerPage from "../player-page/player-page";
 
 import moviesProp from "../movie-card/movie-card.prop";
 

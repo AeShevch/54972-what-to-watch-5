@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MoviesList from "../../components/movies-list/movies-list";
-import movieProp from "../../components/movie-card/movie-card.prop";
-import Logo from "../../components/logo/logo";
-import UserBlock from "../../components/user-block/user-block";
-import Footer from "../../components/footer/footer";
+import MoviesList from "../movies-list/movies-list";
+import movieProp from "../movie-card/movie-card.prop";
+import Logo from "../logo/logo";
+import UserBlock from "../user-block/user-block";
+import Footer from "../footer/footer";
 
 const MainPage = ({movies}) => {
   const [currentMovie] = movies;

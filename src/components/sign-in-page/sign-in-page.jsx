@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../../components/footer/footer";
-import Logo from "../../components/logo/logo";
+import Footer from "../footer/footer";
+import Logo from "../logo/logo";
 
 const SignInPage = () => {
   return (
