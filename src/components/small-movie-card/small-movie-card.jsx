@@ -43,7 +43,7 @@ export default class SmallMovieCard extends PureComponent {
       </article>
     );
   }
-};
+}
 
 SmallMovieCard.propTypes = smallMovieProp;
 

@@ -28,7 +28,7 @@ export default class VideoPlayer extends PureComponent {
       />
     );
   }
-};
+}
 
 VideoPlayer.propTypes = {
   trailer: PropTypes.string.isRequired,
