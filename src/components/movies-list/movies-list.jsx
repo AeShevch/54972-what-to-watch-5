@@ -39,9 +39,7 @@ export default class MoviesList extends PureComponent {
   }
 
   _movieCardMouseOverHandle(evt) {
-    evt.persist();
-    const currentIndex = +evt.currentTarget.dataset.cardIndex;
-    this._timeout = this._getTimeoutToPlayVideo(currentIndex);
+    this._timeout = this._getTimeoutToPlayVideo(+evt.currentTarget.dataset.cardIndex);
   }
 
   render() {
