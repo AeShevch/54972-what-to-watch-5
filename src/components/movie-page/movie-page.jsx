@@ -15,7 +15,6 @@ const MoviePage = (props) => {
           <h2 className="catalog__title">More like this</h2>
           <MoviesList movies={related}/>
         </section>
-
         <Footer/>
       </div>
     </Fragment>

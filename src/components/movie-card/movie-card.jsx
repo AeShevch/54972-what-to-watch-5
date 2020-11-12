@@ -3,9 +3,33 @@ import movieCardProp from "./movie-card.prop";
 import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
 import {Link} from "react-router-dom";
+import Tabs from "../tabs/tabs";
+import TabContentDetails from "../tab-content-details/tab-content-details";
+import TabContentReviews from "../tab-content-reviews/tab-content-reviews";
+import TabContentMain from "../tab-content-main/tab-content-main";
 
 const MovieCard = (props) => {
-  const {name, genre, date, posterBackground, posterVertical, rating, description, director, starring} = props;
+  const {id, name, genre, date, posterBackground, posterVertical} = props;
+  const currentPath = `/films/${id}`;
+  const detailsTabUrl = `${currentPath}#details`;
+  const reviewsTabUrl = `${currentPath}#reviews`;
+  const tabsItems = [
+    {
+      title: `Overview`,
+      link: currentPath,
+      component: TabContentMain,
+    },
+    {
+      title: `Details`,
+      link: detailsTabUrl,
+      component: TabContentDetails,
+    },
+    {
+      title: `Reviews`,
+      link: reviewsTabUrl,
+      component: TabContentReviews,
+    },
+  ];
 
   return (
     <section className="movie-card movie-card--full">
@@ -32,13 +56,13 @@ const MovieCard = (props) => {
             <div className="movie-card__buttons">
               <button className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHref="#play-s"></use>
+                  <use xlinkHref="#play-s"/>
                 </svg>
                 <span>Play</span>
               </button>
               <button className="btn btn--list movie-card__button" type="button">
                 <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
+                  <use xlinkHref="#add"/>
                 </svg>
                 <span>My list</span>
               </button>
@@ -60,41 +84,7 @@ const MovieCard = (props) => {
           </div>
 
           <div className="movie-card__desc">
-            <nav className="movie-nav movie-card__nav">
-              <ul className="movie-nav__list">
-                <li className="movie-nav__item movie-nav__item--active">
-                  <a href="#" className="movie-nav__link">Overview</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Details</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Reviews</a>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="movie-rating">
-              <div className="movie-rating__score">{rating.value}</div>
-              <p className="movie-rating__meta">
-                <span className="movie-rating__level">{rating.string}</span>
-                <span className="movie-rating__count">{rating.count} ratings</span>
-              </p>
-            </div>
-
-            <div className="movie-card__text">
-              {description}
-
-              <p className="movie-card__director">
-                <strong>Director: {director}</strong>
-              </p>
-
-              <p className="movie-card__starring">
-                <strong>
-                  {starring.join(`, `)}
-                </strong>
-              </p>
-            </div>
+            <Tabs movieData={props} tabsItems={tabsItems}/>
           </div>
         </div>
       </div>

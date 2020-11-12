@@ -10,6 +10,7 @@ export default class SmallMovieCard extends PureComponent {
 
   render() {
     const {
+      id,
       name,
       posterHorizontal: poster,
       trailer,
@@ -34,7 +35,7 @@ export default class SmallMovieCard extends PureComponent {
         </div>
         <h3 className="small-movie-card__title">
           <Link
-            to={`/films/1`}
+            to={`/films/${id}`}
             className="small-movie-card__link"
           >
             {name}

@@ -37,12 +37,16 @@ const App = ({movies, reviews}) => {
         <Route
           path="/films/:id"
           exact
-          render={({match: {params: {id}}}) =>
-            <MoviePage
-              movieInfo={movies[id]}
-              reviews={reviews}
-              related={movies.slice(0, RELATED_MOVIES_COUNT)}
-            />
+          render={({match: {params: {id}}}) => {
+            const [currentMovie] = movies.filter((movie) => movie.id === id);
+            const relatedMovies = movies.filter((movie) => movie.genre === currentMovie.genre);
+            return (
+              <MoviePage
+                movieInfo={currentMovie}
+                reviews={reviews}
+                related={relatedMovies.slice(0, RELATED_MOVIES_COUNT)}
+              />);
+          }
           }
         />
 
@@ -56,7 +60,8 @@ const App = ({movies, reviews}) => {
 
       </Switch>
     </BrowserRouter>
-  );
+  )
+    ;
 };
 
 App.propTypes = {
