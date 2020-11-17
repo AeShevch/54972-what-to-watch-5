@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import movieCardProp from "../movie-card/movie-card.prop";
 
 const TabContentDetails = (props) => {
@@ -20,7 +19,7 @@ const TabContentDetails = (props) => {
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
           <span className="movie-card__details-value">
-            {starring.map((star) => <>{star}<br/></>)}
+            {starring.map((star) => <span key={star}>{star}<br/></span>)}
           </span>
         </p>
       </div>
@@ -43,6 +42,6 @@ const TabContentDetails = (props) => {
   );
 };
 
-TabContentDetails.propTypes = PropTypes.shape(movieCardProp);
+TabContentDetails.propTypes = movieCardProp;
 
 export default TabContentDetails;

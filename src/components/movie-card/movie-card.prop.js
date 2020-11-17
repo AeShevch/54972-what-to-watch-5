@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import smallMovieCardProp from "../small-movie-card/small-movie-card.prop";
+import reviewProp from "../review/review.prop";
 
 const extendedMovieProp = {
   id: PropTypes.string.isRequired,
@@ -15,6 +16,7 @@ const extendedMovieProp = {
   description: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  reviews: PropTypes.arrayOf(reviewProp)
 };
 
 export default Object.assign({}, smallMovieCardProp, extendedMovieProp);

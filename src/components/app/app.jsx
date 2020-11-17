@@ -40,10 +40,10 @@ const App = ({movies, reviews}) => {
           render={({match: {params: {id}}}) => {
             const [currentMovie] = movies.filter((movie) => movie.id === id);
             const relatedMovies = movies.filter((movie) => movie.genre === currentMovie.genre);
+            const movieInfo = Object.assign({}, currentMovie, {reviews});
             return (
               <MoviePage
-                movieInfo={currentMovie}
-                reviews={reviews}
+                movieInfo={movieInfo}
                 related={relatedMovies.slice(0, RELATED_MOVIES_COUNT)}
               />);
           }
@@ -60,8 +60,7 @@ const App = ({movies, reviews}) => {
 
       </Switch>
     </BrowserRouter>
-  )
-    ;
+  );
 };
 
 App.propTypes = {

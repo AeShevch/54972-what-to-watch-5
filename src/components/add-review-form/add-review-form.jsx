@@ -15,7 +15,6 @@ export default class AddReviewForm extends PureComponent {
 
   _handleSubmit(evt) {
     evt.preventDefault();
-
   }
 
   _handleChange(evt) {

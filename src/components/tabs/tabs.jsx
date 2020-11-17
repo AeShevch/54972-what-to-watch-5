@@ -1,4 +1,5 @@
 import React, {Fragment} from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import movieCardProp from "../movie-card/movie-card.prop";
 
@@ -30,6 +31,13 @@ const Tabs = (props) => {
   );
 };
 
-Tabs.propTypes = movieCardProp;
+Tabs.propTypes = {
+  movieData: PropTypes.shape(movieCardProp).isRequired,
+  tabsItems: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    component: PropTypes.elementType.isRequired
+  })).isRequired
+};
 
 export default Tabs;

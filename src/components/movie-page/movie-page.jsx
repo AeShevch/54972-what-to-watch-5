@@ -1,7 +1,8 @@
 import React, {Fragment} from "react";
+import PropTypes from "prop-types";
 import MovieCard from "../movie-card/movie-card";
 import MoviesList from "../movies-list/movies-list";
-import moviePageProp from "./movie-page.prop";
+import movieCardProp from "../movie-card/movie-card.prop";
 import Footer from "../footer/footer";
 
 const MoviePage = (props) => {
@@ -21,6 +22,9 @@ const MoviePage = (props) => {
   );
 };
 
-MoviePage.propTypes = moviePageProp;
+MoviePage.propTypes = {
+  movieInfo: PropTypes.shape(movieCardProp).isRequired,
+  related: PropTypes.arrayOf(PropTypes.shape(movieCardProp)).isRequired,
+};
 
 export default MoviePage;
