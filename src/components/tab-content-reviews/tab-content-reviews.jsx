@@ -6,16 +6,18 @@ import Review from "../review/review";
 const TabContentReviews = (props) => {
   const {reviews} = props;
   const reviewsByColumns = reviews.reduce((resultArr, currentReview, i) => {
+    const [firstColumn, secondColumn] = resultArr;
+
     if (i % 2 === 0) {
       return [
-        resultArr[0],
-        [...resultArr[1], currentReview]
+        firstColumn,
+        [...secondColumn, currentReview]
       ];
     }
 
     return [
-      [...resultArr[0], currentReview],
-      resultArr[1]
+      [...firstColumn, currentReview],
+      secondColumn
     ];
   }, [[], []]);
 
