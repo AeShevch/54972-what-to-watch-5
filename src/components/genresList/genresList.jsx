@@ -3,9 +3,16 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreater} from "../../store/action";
 import moviesListProp from "../small-movie-card/small-movie-card.prop";
+import {DEFAULT_MOVIES_COUNT} from "../../store/reducer";
 
 const GenresList = (props) => {
-  const {currentGenre, movies, changeGenre, setFilteredMovies} = props;
+  const {
+    currentGenre,
+    movies,
+    changeGenre,
+    setFilteredMovies,
+    resetMoviesToShowCount
+  } = props;
 
   const genres = movies.reduce((result, movie) =>
     result.add(movie.genre), new Set([`All genres`]));
@@ -16,6 +23,7 @@ const GenresList = (props) => {
     const newGenre = evt.currentTarget.textContent;
     changeGenre(newGenre);
     setFilteredMovies();
+    resetMoviesToShowCount();
   };
 
   return (
@@ -48,8 +56,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreater.changeGenreAction(genre));
   },
   setFilteredMovies() {
-    dispatch(ActionCreater.setFilteredMovies());
-  }
+    dispatch(ActionCreater.setFilteredMoviesAction());
+  },
+  resetMoviesToShowCount() {
+    dispatch(ActionCreater.setMoviesToShowCountAction(DEFAULT_MOVIES_COUNT));
+  },
 });
 
 GenresList.propTypes = {
@@ -57,6 +68,7 @@ GenresList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape(moviesListProp)).isRequired,
   changeGenre: PropTypes.func.isRequired,
   setFilteredMovies: PropTypes.func.isRequired,
+  resetMoviesToShowCount: PropTypes.func.isRequired,
 };
 
 export {GenresList};

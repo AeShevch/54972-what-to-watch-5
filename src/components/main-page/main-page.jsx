@@ -6,6 +6,7 @@ import Logo from "../logo/logo";
 import UserBlock from "../user-block/user-block";
 import Footer from "../footer/footer";
 import GenresList from "../genresList/genresList";
+import ShowMore from "../show-more/show-more";
 
 const MainPage = ({movies}) => {
   const [currentMovie] = movies;
@@ -66,12 +67,9 @@ const MainPage = ({movies}) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <GenresList/>
-
           <MoviesList/>
+          <ShowMore/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
         </section>
 
         <Footer/>

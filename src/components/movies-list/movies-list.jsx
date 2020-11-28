@@ -68,7 +68,7 @@ class MoviesList extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.filteredMovies.slice(FIRST_MOVIE_INDEX, state.maxMoviesShown),
+  movies: state.filteredMovies.slice(FIRST_MOVIE_INDEX, state.maxMoviesShownCount),
 });
 
 MoviesList.propTypes = {
