@@ -3,10 +3,12 @@ import {ActionType} from "./action";
 import {extend} from "../utils";
 
 const DEFAULT_GENRE = `All genres`;
+const DEFAULT_MOVIES_COUNT = 8;
 
 const initialState = {
   filterGenre: DEFAULT_GENRE,
   filteredMovies: movies,
+  maxMoviesShown: DEFAULT_MOVIES_COUNT,
   movies,
 };
 

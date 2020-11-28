@@ -6,6 +6,7 @@ import moviesListProp from "../small-movie-card/small-movie-card.prop";
 
 const EMPTY_INDEX = -1;
 const MS_DELAY_TO_PLAY_VIDEO = 1000;
+const FIRST_MOVIE_INDEX = 0;
 
 class MoviesList extends PureComponent {
   constructor(props) {
@@ -46,6 +47,7 @@ class MoviesList extends PureComponent {
   render() {
     const {movies} = this.props;
     const {activeMovieIndex} = this.state;
+
     return (
       <div className="catalog__movies-list">
         {
@@ -66,7 +68,7 @@ class MoviesList extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.filteredMovies,
+  movies: state.filteredMovies.slice(FIRST_MOVIE_INDEX, state.maxMoviesShown),
 });
 
 MoviesList.propTypes = {
