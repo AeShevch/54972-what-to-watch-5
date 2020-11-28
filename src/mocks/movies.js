@@ -33,7 +33,7 @@ Gustave prides himself on providing first-class service to the hotel's guests, i
   },
   {
     name: `Fantastic Beasts: The Crimes of Grindelwald`,
-    genre: `Drama`,
+    genre: `Comedy`,
     date: `2014`,
     runTime: `1h 39m`,
     director: `Wes Andreson`,

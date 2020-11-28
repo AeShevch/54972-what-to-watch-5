@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         return extend({}, initialState);
       }
 
-      const filteredMovies = state.movies.filter(() => action.payload === state.filterGenre);
+      const filteredMovies = state.movies.filter((movie) => state.filterGenre === movie.genre);
       return extend(state, {
         movies: filteredMovies,
       });

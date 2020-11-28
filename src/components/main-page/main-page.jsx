@@ -9,6 +9,12 @@ import GenresList from "../genresList/genresList";
 
 const MainPage = ({movies}) => {
   const [currentMovie] = movies;
+  const genres = movies.reduce((result, movie) => {
+      return result.add(movie.genre);
+    }, new Set([`All genres`])
+  );
+
+  console.log(genres);
 
   return (
     <React.Fragment>
@@ -65,7 +71,7 @@ const MainPage = ({movies}) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList/>
+          <GenresList items={Array.from(genres)}/>
 
           <MoviesList movies={movies}/>
 

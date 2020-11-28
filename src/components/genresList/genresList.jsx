@@ -3,28 +3,29 @@ import {connect} from "react-redux";
 import {ActionCreater} from "../../store/action";
 
 const GenresList = (props) => {
-  const {currentGenre, movies} = props;
-  const genres = movies.reduce((result, movie) => {
-    return result.add(movie.genre);
-  }, new Set([`All genres`])
-  );
+  const {items, currentGenre, movies, changeGenre, getFilteredMovies} = props;
+
+  const genresLinkClickHandler = (evt) => {
+    const newGenre = evt.currentTarget.textContent;
+    changeGenre(newGenre);
+    getFilteredMovies();
+  };
 
   return (
     <ul className="catalog__genres-list">
-      {Array.from(genres).map((genre) => (
+      {items.map((genre) => (
         <li className={`catalog__genres-item ${genre === currentGenre ? `catalog__genres-item--active` : `` }`}
           key={`list-item-${genre}`}>
           <a href="#" type="button"
-             onClick={}
-             className="catalog__genres-link">
+            onClick={genresLinkClickHandler}
+            className="catalog__genres-link">
             {genre}
           </a>
         </li>
       ))}
     </ul>
   );
-}
-;
+};
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
@@ -32,9 +33,13 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeGenre() {
-      dispatch(ActionCreater.changeGenreAction())
+  changeGenre(genre) {
+    dispatch(ActionCreater.changeGenreAction(genre));
+  },
+  getFilteredMovies() {
+    dispatch(ActionCreater.getFilteredMovies());
   }
 });
 
-export default connect(mapStateToProps)(GenresList);
+export {GenresList};
+export default connect(mapStateToProps, mapDispatchToProps)(GenresList);
