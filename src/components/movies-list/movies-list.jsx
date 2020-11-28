@@ -1,4 +1,5 @@
 import React, {PureComponent} from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import SmallMovieCard from "../small-movie-card/small-movie-card";
 import moviesListProp from "../small-movie-card/small-movie-card.prop";
@@ -6,7 +7,7 @@ import moviesListProp from "../small-movie-card/small-movie-card.prop";
 const EMPTY_INDEX = -1;
 const MS_DELAY_TO_PLAY_VIDEO = 1000;
 
-export default class MoviesList extends PureComponent {
+class MoviesList extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -64,7 +65,13 @@ export default class MoviesList extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  movies: state.filteredMovies,
+});
+
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape(moviesListProp)).isRequired,
 };
 
+export {MoviesList};
+export default connect(mapStateToProps)(MoviesList);

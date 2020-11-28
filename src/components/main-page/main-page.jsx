@@ -9,12 +9,6 @@ import GenresList from "../genresList/genresList";
 
 const MainPage = ({movies}) => {
   const [currentMovie] = movies;
-  const genres = movies.reduce((result, movie) => {
-      return result.add(movie.genre);
-    }, new Set([`All genres`])
-  );
-
-  console.log(genres);
 
   return (
     <React.Fragment>
@@ -51,13 +45,13 @@ const MainPage = ({movies}) => {
               <div className="movie-card__buttons">
                 <button className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
+                    <use xlinkHref="#play-s"/>
                   </svg>
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref="#add"/>
                   </svg>
                   <span>My list</span>
                 </button>
@@ -71,9 +65,9 @@ const MainPage = ({movies}) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList items={Array.from(genres)}/>
+          <GenresList/>
 
-          <MoviesList movies={movies}/>
+          <MoviesList/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

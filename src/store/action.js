@@ -1,6 +1,6 @@
 export const ActionType = {
   CHANGE_FILTER_GENRE: `CHANGE_FILTER_GENRE`,
-  GET_FILTERED_MOVIES: `GET_FILTERED_MOVIES`,
+  SET_FILTERED_MOVIES: `SET_FILTERED_MOVIES`,
 };
 
 export const ActionCreater = {
@@ -8,7 +8,7 @@ export const ActionCreater = {
     type: ActionType.CHANGE_FILTER_GENRE,
     payload: newGenre,
   }),
-  getFilteredMovies: () => ({
-    type: ActionType.GET_FILTERED_MOVIES,
+  setFilteredMovies: () => ({
+    type: ActionType.SET_FILTERED_MOVIES,
   }),
 };

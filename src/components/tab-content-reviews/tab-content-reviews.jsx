@@ -31,7 +31,7 @@ const TabContentReviews = (props) => {
 };
 
 TabContentReviews.propTypes = {
-  reviews: PropTypes.arrayOf(reviewsProp)
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewsProp))
 };
 
 export default TabContentReviews;

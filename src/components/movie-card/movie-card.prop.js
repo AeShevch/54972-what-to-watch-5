@@ -16,7 +16,7 @@ const extendedMovieProp = {
   description: PropTypes.string.isRequired,
   director: PropTypes.string.isRequired,
   starring: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  reviews: PropTypes.arrayOf(reviewProp)
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewProp))
 };
 
 export default Object.assign({}, smallMovieCardProp, extendedMovieProp);

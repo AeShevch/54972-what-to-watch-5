@@ -6,6 +6,7 @@ const DEFAULT_GENRE = `All genres`;
 
 const initialState = {
   filterGenre: DEFAULT_GENRE,
+  filteredMovies: movies,
   movies,
 };
 
@@ -15,15 +16,13 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         filterGenre: action.payload,
       });
-    case ActionType.GET_FILTERED_MOVIES:
-      if (action.payload === DEFAULT_GENRE) {
+    case ActionType.SET_FILTERED_MOVIES:
+      if (state.filterGenre === DEFAULT_GENRE) {
         return extend({}, initialState);
       }
 
       const filteredMovies = state.movies.filter((movie) => state.filterGenre === movie.genre);
-      return extend(state, {
-        movies: filteredMovies,
-      });
+      return extend(state, {filteredMovies});
   }
 
   return state;
