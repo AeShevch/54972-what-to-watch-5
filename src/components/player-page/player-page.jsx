@@ -1,25 +1,31 @@
 import React, {createRef} from "react";
 import {withVideoPlayer} from "../../hocs/withVideoPlayer";
 
-const PlayerPage = ({pageId, reviews, movies}) => {
+const PlayerPage = ({pageId, movies, isPlaying, handlePlayingChange}) => {
   const [currentMovie] = movies.filter((movie) => movie.id === pageId);
-  const movieInfo = Object.assign({}, currentMovie, {reviews});
 
   const videoRef = createRef();
   const videoElement = videoRef.current;
 
   const handlePlayClick = () => {
-    videoElement.play();
-  }
+    handlePlayingChange();
+
+    if (isPlaying) {
+      videoElement.pause();
+    } else {
+      videoElement.play();
+    }
+
+  };
 
   return (
     <div className="player">
       <video
         autoPlay="true"
         ref={videoRef}
-        src={movieInfo.trailer}
+        src={currentMovie.trailer}
         className="player__video"
-        poster={movieInfo.posterBackground}
+        poster={currentMovie.posterBackground}
       />
 
       <button type="button" className="player__exit">Exit</button>
@@ -37,7 +43,7 @@ const PlayerPage = ({pageId, reviews, movies}) => {
           <button
             type="button"
             className="player__play"
-            onClick={}
+            onClick={handlePlayClick}
           >
             <svg viewBox="0 0 19 19" width="19" height="19">
               <use xlinkHref="#play-s"/>

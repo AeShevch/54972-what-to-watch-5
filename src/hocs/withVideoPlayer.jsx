@@ -26,8 +26,8 @@ export const withVideoPlayer = (Component) =>
       return (
         <Component
           {...this.props}
-          isActive={this.state.isPlaying}
-          onActiveChange={this._handlePlayingChange}
+          isPlaying={this.state.isPlaying}
+          handlePlayingChange={this._handlePlayingChange}
         />
       );
     }
