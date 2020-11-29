@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import SmallMovieCard from "../small-movie-card/small-movie-card";
 import moviesListProp from "../small-movie-card/small-movie-card.prop";
+import {withOneActiveElement} from "../../hocs/withOneActiveElement";
 
-const EMPTY_INDEX = -1;
 const MS_DELAY_TO_PLAY_VIDEO = 1000;
 const FIRST_MOVIE_INDEX = 0;
 
@@ -12,14 +12,12 @@ class MoviesList extends PureComponent {
   constructor(props) {
     super(props);
 
+    this._handleActiveChange = this.props.handleActiveChange;
+    this._setActivityToDefault = this.props.setActivityToDefault;
+
     this._movieCardMouseLeaveHandle = this._movieCardMouseLeaveHandle.bind(this);
     this._movieCardMouseOverHandle = this._movieCardMouseOverHandle.bind(this);
 
-    this._defaultState = {
-      activeMovieIndex: EMPTY_INDEX,
-    };
-
-    this.state = this._defaultState;
   }
 
   componentWillUnmount() {
@@ -29,14 +27,12 @@ class MoviesList extends PureComponent {
   _getTimeoutToPlayVideo(movieCardIndex) {
     return setTimeout(
         () => {
-          this.setState({
-            activeMovieIndex: movieCardIndex,
-          });
+          this._handleActiveChange(movieCardIndex);
         }, MS_DELAY_TO_PLAY_VIDEO);
   }
 
   _movieCardMouseLeaveHandle() {
-    this.setState(this._defaultState);
+    this._setActivityToDefault();
     clearTimeout(this._timeout);
   }
 
@@ -46,7 +42,7 @@ class MoviesList extends PureComponent {
 
   render() {
     const {movies} = this.props;
-    const {activeMovieIndex} = this.state;
+    const {activeElementIndex} = this.props;
 
     return (
       <div className="catalog__movies-list">
@@ -54,7 +50,7 @@ class MoviesList extends PureComponent {
           movies.map((movie, index) => (
             <SmallMovieCard
               key={movie.id}
-              isActive={activeMovieIndex === index}
+              isActive={activeElementIndex === index}
               movieCardMouseLeaveHandle={this._movieCardMouseLeaveHandle}
               movieCardMouseOverHandle={this._movieCardMouseOverHandle}
               index={index}
@@ -73,7 +69,13 @@ const mapStateToProps = (state) => ({
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape(moviesListProp)).isRequired,
+  handleActiveChange: PropTypes.func.isRequired,
+  setActivityToDefault: PropTypes.func.isRequired,
+  activeElementIndex: PropTypes.number.isRequired,
 };
 
 export {MoviesList};
-export default connect(mapStateToProps)(MoviesList);
+
+export default withOneActiveElement(
+    connect(mapStateToProps)(MoviesList)
+);
