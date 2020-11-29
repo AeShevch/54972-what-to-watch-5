@@ -25,7 +25,7 @@ const ShowMore = (props) => {
 
 const mapStateToProps = (state) => ({
   maxMoviesShownCount: state.maxMoviesShownCount,
-  moviesShownCount: state.filteredMovies.length,
+  moviesCount: state.filteredMovies.length,
 });
 
 const mapDispatchToProps = (dispatch) => ({
