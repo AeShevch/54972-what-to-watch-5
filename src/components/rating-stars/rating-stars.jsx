@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Star from "../star/star";
 import {withOneActiveElement} from "../../hocs/withOneActiveElement";
 
@@ -28,5 +29,12 @@ const RatingStars = (props) => {
     </div>
   );
 };
+
+RatingStars.propTypes = {
+  activeElementIndex: PropTypes.number.isRequired,
+  handleActiveChange: PropTypes.func.isRequired,
+  handleFieldDataChange: PropTypes.func.isRequired,
+};
+
 
 export default withOneActiveElement(RatingStars);
