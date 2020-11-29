@@ -14,10 +14,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        movies={movies}
-        reviews={reviews}
-      />
+      <App reviews={reviews} />
     </Provider>,
     document.getElementById(`root`)
 );
