@@ -5,12 +5,12 @@ import {ActionCreater} from "../../store/action";
 import {DEFAULT_MOVIES_COUNT} from "../../store/reducer";
 
 const ShowMore = (props) => {
-  const {maxMoviesShownCount, setMoviesToShowCount, moviesShownCount} = props;
+  const {maxMoviesShownCount, setMoviesToShowCount, moviesCount} = props;
 
   const buttonClickHandler = () =>
     setMoviesToShowCount(maxMoviesShownCount + DEFAULT_MOVIES_COUNT);
 
-  return moviesShownCount > maxMoviesShownCount ? (
+  return moviesCount > maxMoviesShownCount ? (
     <div className="catalog__more">
       <button
         className="catalog__button"
@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 ShowMore.propTypes = {
   maxMoviesShownCount: PropTypes.number.isRequired,
-  moviesShownCount: PropTypes.number.isRequired,
+  moviesCount: PropTypes.number.isRequired,
   setMoviesToShowCount: PropTypes.func.isRequired,
 };
 
