@@ -11,24 +11,24 @@ import TabContentMain from "../tab-content-main/tab-content-main";
 const MovieCard = (props) => {
   const {id, name, genre, date, posterBackground, posterVertical} = props;
 
-  const CURRENT_PATH = `/films/${id}`;
-  const DETAILS_TAB_URL = `${CURRENT_PATH}#details`;
-  const REVIEWS_TAB_URL = `${CURRENT_PATH}#reviews`;
+  const currentPath = `/films/${id}`;
+  const detailsTabUrl = `${currentPath}#details`;
+  const reviewsTabUrl = `${currentPath}#reviews`;
 
   const tabsItems = [
     {
       title: `Overview`,
-      link: CURRENT_PATH,
+      link: currentPath,
       component: TabContentMain,
     },
     {
       title: `Details`,
-      link: DETAILS_TAB_URL,
+      link: detailsTabUrl,
       component: TabContentDetails,
     },
     {
       title: `Reviews`,
-      link: REVIEWS_TAB_URL,
+      link: reviewsTabUrl,
       component: TabContentReviews,
     },
   ];
