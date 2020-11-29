@@ -42,6 +42,18 @@ const App = ({movies, reviews}) => {
               />}
         />
 
+        <Route
+          path="/player/:id"
+          exact
+          render={
+            ({match: {params: {id}}}) =>
+              <PlayerPage
+                pageId={id}
+                movies={movies}
+                reviews={reviews}
+              />}
+        />
+
         <Route path="/films/:id/review" exact>
           <ReviewPage/>
         </Route>

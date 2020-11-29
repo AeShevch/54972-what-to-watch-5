@@ -1,25 +1,46 @@
-import React from "react";
+import React, {createRef} from "react";
+import {withVideoPlayer} from "../../hocs/withVideoPlayer";
 
-const PlayerPage = () => {
+const PlayerPage = ({pageId, reviews, movies}) => {
+  const [currentMovie] = movies.filter((movie) => movie.id === pageId);
+  const movieInfo = Object.assign({}, currentMovie, {reviews});
+
+  const videoRef = createRef();
+  const videoElement = videoRef.current;
+
+  const handlePlayClick = () => {
+    videoElement.play();
+  }
+
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>
+      <video
+        autoPlay="true"
+        ref={videoRef}
+        src={movieInfo.trailer}
+        className="player__video"
+        poster={movieInfo.posterBackground}
+      />
 
       <button type="button" className="player__exit">Exit</button>
 
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">
-            <progress className="player__progress" value="30" max="100"></progress>
+            <progress className="player__progress" value="30" max="100"/>
             <div className="player__toggler" style={{left: `30%`}}>Toggler</div>
           </div>
           <div className="player__time-value">1:30:29</div>
         </div>
 
         <div className="player__controls-row">
-          <button type="button" className="player__play">
+          <button
+            type="button"
+            className="player__play"
+            onClick={}
+          >
             <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
+              <use xlinkHref="#play-s"/>
             </svg>
             <span>Play</span>
           </button>
@@ -27,7 +48,7 @@ const PlayerPage = () => {
 
           <button type="button" className="player__full-screen">
             <svg viewBox="0 0 27 27" width="27" height="27">
-              <use xlinkHref="#full-screen"></use>
+              <use xlinkHref="#full-screen"/>
             </svg>
             <span>Full screen</span>
           </button>
@@ -37,4 +58,4 @@ const PlayerPage = () => {
   );
 };
 
-export default PlayerPage;
+export default withVideoPlayer(PlayerPage);
