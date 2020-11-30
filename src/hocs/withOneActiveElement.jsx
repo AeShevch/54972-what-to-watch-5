@@ -12,7 +12,6 @@ export const withOneActiveElement = (Component) => {
         activeElementIndex: props.activeElementIndex ? props.activeElementIndex : EMPTY_INDEX,
       };
 
-
       this.state = this._defaultState;
 
       this._handleActiveChange = this._handleActiveChange.bind(this);

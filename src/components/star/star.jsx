@@ -2,13 +2,15 @@ import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 
 const Star = ({index, isActive, handleChange}) => {
-  const value = ++index;
+  const value = index + 1;
+  const inputId = `star-${value}`;
+
   return (
     <Fragment>
       <input
         className="rating__input"
         onChange={handleChange}
-        id={`star-${value}`}
+        id={inputId}
         type="radio"
         name="rating"
         value={value}
@@ -16,7 +18,7 @@ const Star = ({index, isActive, handleChange}) => {
       />
       <label
         className="rating__label"
-        htmlFor={`star-${value}`}>
+        htmlFor={inputId}>
         Rating ${value}
       </label>
     </Fragment>

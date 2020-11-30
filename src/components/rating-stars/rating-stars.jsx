@@ -15,7 +15,7 @@ const RatingStars = (props) => {
   return (
     <div className="rating">
       <div className="rating__stars">
-        {new Array(STARS_COUNT).fill(``).map((value, index) =>
+        {new Array(STARS_COUNT).fill().map((_, index) =>
           <Star
             key={`star-${index}`}
             index={index}

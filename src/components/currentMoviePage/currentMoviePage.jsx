@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import MoviePage from "../movie-page/movie-page";
 import moviesListProp from "../small-movie-card/small-movie-card.prop";
 import reviewProp from "../review/review.prop";
+import {extend} from "../../utils";
 
 const RELATED_MOVIES_COUNT = 4;
 
 const CurrentMoviePage = ({pageId, reviews, movies}) => {
   const [currentMovie] = movies.filter((movie) => movie.id === pageId);
   const relatedMovies = movies.filter((movie) => movie.genre === currentMovie.genre);
-  const movieInfo = Object.assign({}, currentMovie, {reviews});
+  const movieInfo = extend(currentMovie, {reviews});
 
   return (
     <MoviePage
